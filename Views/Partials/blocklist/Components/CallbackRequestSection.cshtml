@@ -85,8 +85,8 @@
 
             <div>
                 @{
-                    var formError = TempData.Peek("FormError") as string;
-                    var formSuccess = TempData.Peek("FormSuccess") as string;
+                    var formError = TempData[$"FormError_{formModel.FormId}"] as string;
+                    var formSuccess = TempData[$"FormSuccess_{formModel.FormId}"] as string;
                 }
 
                 @if (!string.IsNullOrWhiteSpace(formError))

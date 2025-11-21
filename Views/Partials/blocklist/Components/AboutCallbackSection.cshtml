@@ -49,6 +49,26 @@
                 @content.AboutCallBackFormDescription
             </p>
 
+            @{
+                var formError = TempData[$"FormError_{formModel.FormId}"] as string;
+                var formSuccess = TempData[$"FormSuccess_{formModel.FormId}"] as string;
+            }
+
+            @if (!string.IsNullOrWhiteSpace(formError))
+            {
+                <div class="mx-[2rem] mb-4 rounded-[18px] border border-red-200 bg-red-50 px-6 py-3 text-sm text-red-700 shadow-sm">
+                    <strong class="text-red-800">Error:</strong>
+                    <span class="block">@formError</span>
+                </div>
+            }
+
+            @if (!string.IsNullOrWhiteSpace(formSuccess))
+            {
+                <div class="mx-[2rem] mb-4 rounded-[18px] border border-green-200 bg-green-50 px-6 py-3 text-sm text-green-700 shadow-sm">
+                    <strong class="text-green-800">@formSuccess</strong>
+                </div>
+            }
+
             <partial name="Partials/Forms/_CallbackForm" model="formModel" view-data="@(new ViewDataDictionary(ViewData) { { "FormId", "callbackForm" } })" />
         </div>
 

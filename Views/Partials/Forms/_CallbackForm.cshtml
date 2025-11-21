@@ -7,9 +7,8 @@
     var formId = ViewData["FormId"] as string ?? "callbackRequestForm";
 }
 
-@using (Html.BeginUmbracoForm<FormController>("HandleCallbackForm", new { }, new { id = formId }))
+@using (Html.BeginUmbracoForm<FormController>(nameof(FormController.HandleCallbackForm), FormMethod.Post, new { id = formId }))
 {
-    @Html.AntiForgeryToken()
     <input type="hidden" name="FormId" value="@Model.FormId" />
 
     <div asp-validation-summary="ModelOnly" class="mb-3 text-sm text-red-600"></div>

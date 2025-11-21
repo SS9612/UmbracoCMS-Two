@@ -35,11 +35,11 @@ namespace UmbracoCMS.Controllers
             var result = _formSubmissions.SaveCallbackRequest(model);
             if (!result)
             {
-                TempData["FormError"] = "Something went wrong while submitting your request. Please try again later.";
+                TempData[$"FormError_{model.FormId}"] = "Something went wrong while submitting your request. Please try again later.";
                 return RedirectToCurrentUmbracoPage();
             }
 
-            TempData["FormSuccess"] = "Thank you! Your request has been received and we will get back to you soon";
+            TempData[$"FormSuccess_{model.FormId}"] = "Thank you! Your request has been received and we will get back to you soon";
 
             return RedirectToCurrentUmbracoPage();
         }
