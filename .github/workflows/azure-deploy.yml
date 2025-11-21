@@ -7,9 +7,9 @@ on:
   workflow_dispatch:
 
 env:
-  AZURE_WEBAPP_NAME: onatrixss    # Set this to your Azure App Service name
+  AZURE_WEBAPP_NAME: UmbracoCMSs
   DOTNET_VERSION: '9.0.x'
-  PROJECT_PATH: 'UmbracoCMS/UmbracoCMS.csproj'
+  PROJECT_PATH: 'UmbracoCMS.csproj'
 
 jobs:
   build-and-deploy:
